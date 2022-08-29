@@ -1,0 +1,233 @@
+database: It is a object container, which can container table, schema, views, indexes
+			
+schema:	It is a logical object container,
+		A database can have multiple schema
+		mostly it is used in interprise level, like in a company
+		a hr management can give acces of them database to the employee
+		by creating the schema, like to the admin pannel, and we can also make 
+		lock kind of thing to protect the data from other 
+
+Table: it is used to store the data
+		A database can have multiple table
+
+TableSpace: storage location where data is stored 
+			postgreSQL provide two TableSpace by default:
+				pg_default: used to store user data
+				pg_global: used to store system data
+
+Views: Views is virtual table 
+		are used to simplify complex quries 
+		used to apply security for a set of records (you can hide information or can protect 
+		certain part of a table from others to see, So you can create views of a tables)
+
+cast:	convert one data type to another data-type  
+		used with function to perform conversion
+		you can also use your own custome cast to override the default
+
+operators:	operator is a symbolic function
+			you can define your own function operators
+
+sequences:	IT is used to manage auto-increment columns 
+
+
+extension:	wraping of objects into single units 		
+			cast
+			indexes
+			functions
+			etc
+
+
+
+function: it is also called stored procedure 
+		  It increase use-bility and read-ability 
+		  A block of reuseable code
+		  Return scalar value of list of recoards
+		  return a composite objects
+
+
+
+
+datatype in postgres
+====================
+	1. boolean --> true, false, NULL
+	2. character --> char(n), varchar(n), text
+	3. number --> 
+				Integer
+						small ineger(smallint)
+						integer(int)
+						serial
+				Float	
+						float(n)
+						real or float(8)
+	4. temporal -->	
+				date store date values only
+				time store time of day values
+				timestamp store date and time 
+				interval store period of time 
+				timestampz store both timestamp and time zone data
+	5. array -->
+				you can store an array of string, array of integer, etc
+
+	6. special type  -->	
+					box - a ractangular box
+					line - a set of points
+					point - a geomatrical pair of numbers
+					lseg - a line segment 
+					polygon - a closed geomatric
+					inet - an ip4 address
+
+
+
+
+
+
+
+join
+=====
+	To retrive data from multiple tables
+	to participate join, table must have related data between them 
+	join perform between two or more table using SQL statement 
+
+type of join
+------------
+	1. inner join
+	2. left join
+	3. full outer join
+	4. cross join
+	5. natural join
+
+
+
+
+Inner join
+==========
+			used to retrieve data from multiple table using inner join clause
+			return the record which match in both table
+
+Left join
+=========
+			used to retrieve data from multiple table using left join clause
+			return the record from left table and are matched records from the right table 	
+
+Natural join
+============			
+			used to retrieve data from multiple table using natural join clause
+			it create implicit join based on matching column name in the join tables
+			natural join can be (left join, right join, inner join)
+			postgres use inner join by default
+
+Full outer join
+===============
+			it is used to retrieve data from multiple table using full outer join clause
+			it is used to retrieve data from both table 
+			it place or set null value if the rows in the join table does not match 
+			for matching rows a single row is included in the result from both table
+		note: Full outer join can potentially return very large result-sets
+
+Cross join
+==========
+			
+
+
+
+
+
+
+
+
+Aggregate functions
+===================
+		1. Aggregate function perform a calculation on the set of rows and return single row
+		2. can be used in select, group by, having clause
+		3. when we use aggregation function with group by, then group by will first divide result-set into groups of rules and then the aggregate function will perform calculation on each groups 
+
+
+	1.  AVG()
+	=========
+			used to calculate the average value in numerical columns
+			widely used 
+			can be used in select, group by, having clauses
+			ignore NULL values
+
+	2. count()
+	==========
+
+
+	3. MAX()
+	========
+
+
+	4. MIN()
+	========
+
+	5. SUM()
+	========
+
+	6. CAST()
+	=========
+
+	7. 		
+
+
+
+
+Having
+======
+		having is used with group by clause 
+		used to filter group by rows that do not setisfy condition 
+
+		syntex
+		------	
+				select column1, aggregate_function(column2)
+				from tableName
+				group by column1
+				having condition;
+
+group by
+========
+		used to divide the rows return from a select statement into groups
+		using group by clause we can apply aggregate function to the columns 
+
+		syntex
+		------	
+				select column1, aggregate_function(column2)
+				from tableName
+				group by column1
+				having condition;
+
+
+having
+======
+		used to inconjection with group by clause 
+		used to filter group rows that do not satisfy a specified condition 
+
+		syntex
+		======
+				select column1, column2,
+				from tableName 
+				group by column1 
+				having  conditions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
